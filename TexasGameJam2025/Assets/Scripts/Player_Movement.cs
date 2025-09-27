@@ -7,12 +7,12 @@ public class Player_Movement : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
 
-    private Player_Controller _playerInputActions;
+    private InputSystem_Actions _playerInputActions;
     private Vector3 _input;
     private CharacterController _characterController;
 
     private void Awake(){
-        _playerInputActions = new Player_Controller();
+        _playerInputActions = new InputSystem_Actions();
         _characterController = GetComponent<CharacterController>();
     }
 
