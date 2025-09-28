@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -99.92139, y: 90.898}
+  m_AnchoredPosition: {x: -99.911, y: 57}
   m_SizeDelta: {x: 1114.1572, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &331424439
@@ -178,8 +178,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Jane Doe
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1163a3c8ea6a5452d8d5701da6614ff7, type: 2}
+  m_sharedMaterial: {fileID: -5647826334201783400, guid: 1163a3c8ea6a5452d8d5701da6614ff7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -430,6 +430,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 985362773}
+  - component: {fileID: 985362774}
   m_Layer: 0
   m_Name: DialogueControl
   m_TagString: Untagged
@@ -452,6 +453,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &985362774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985362772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9b0359463434c65b4611783f6a8729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueController
+  dialogueText: {fileID: 1313525948}
+  nameText: {fileID: 331424439}
+  dialoguePanel: {fileID: 2017192672}
 --- !u!1 &1064245910
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31.14, y: -26.1476}
+  m_AnchoredPosition: {x: -31.14, y: -51}
   m_SizeDelta: {x: 1251.7, y: 144.943}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1313525948
@@ -590,8 +606,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: osfahoxj,sdk dkjbfwxmsjldv m xsdmljkbcxnojl xsjldkfnmvxklm
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 285999b15c69f42c6a8a2245638edf81, type: 2}
+  m_sharedMaterial: {fileID: 8634720433114290487, guid: 285999b15c69f42c6a8a2245638edf81, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -833,7 +849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ba7c290516644e6911398a5fe38539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tools
-  du: {fileID: 2017192676}
+  du: {fileID: 985362774}
 --- !u!4 &1645105180
 Transform:
   m_ObjectHideFlags: 0
@@ -860,7 +876,6 @@ GameObject:
   - component: {fileID: 2017192673}
   - component: {fileID: 2017192675}
   - component: {fileID: 2017192674}
-  - component: {fileID: 2017192676}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -886,8 +901,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -325}
-  m_SizeDelta: {x: -500, y: -750}
+  m_AnchoredPosition: {x: 0, y: -362.5}
+  m_SizeDelta: {x: -200, y: -725}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2017192674
 MonoBehaviour:
@@ -902,14 +917,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7716996604650799243, guid: 61fc89a6910b1408fa93b115a2c17ee6, type: 3}
+  m_Sprite: {fileID: 8975900042976238184, guid: 4c46f8cdcf34344a9be3689f488f00a2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -927,21 +942,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017192672}
   m_CullTransparentMesh: 1
---- !u!114 &2017192676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2017192672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 729f62e9659de45f282123a36c8e581a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  dialogueText: {fileID: 1313525948}
-  nameText: {fileID: 331424439}
-  dialoguePanel: {fileID: 2017192672}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

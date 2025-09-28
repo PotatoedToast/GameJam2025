@@ -6,7 +6,9 @@ public class DialogueController : MonoBehaviour {
     public TextMeshProUGUI nameText;
     public GameObject dialoguePanel;
 
-    public static string[] dialogues = {};
+    public static string[] dialogues = {"Hello, my name is Derry the Datypus! Welcome to Murder in the Meadow.",
+                                        "To move, press WASD. To interact, press E. Go ahead and explore the room."};
+    public static string name = "Derry the Datypus";
     public static int i = 0;
 
     void Start() {
@@ -16,11 +18,11 @@ public class DialogueController : MonoBehaviour {
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && i == 0) {
-            ShowDialogue(dialogues[i], "Cathy Du");
+            ShowDialogue(dialogues[i], name);
             i++;
         } else if (Input.GetKeyDown(KeyCode.Space) && i > 0) {
             if (i < dialogues.Length) {
-                ShowDialogue(dialogues[i], "Cathy Du");
+                ShowDialogue(dialogues[i], name);
                 i++;
             } else {
                 EndDialogue();
