@@ -6,13 +6,14 @@ using TMPro;
 public class CountdownTimer : MonoBehaviour
 {
 
-    public float timeRemaining = 300f;
+    public float timeRemaining;
     public bool timerIsRunning = false; 
 
     public TextMeshProUGUI timeText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        SetTimerForScene();
         timerIsRunning = true;
     }
 
@@ -24,9 +25,14 @@ public class CountdownTimer : MonoBehaviour
                 timeRemaining -= Time.deltaTime;
                 DisplayTime(timeRemaining);
             } else {
-                SceneManager.LoadScene(1);
+                
                 timeRemaining = 0;
                 timerIsRunning = false;
+
+                int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+                if (nextSceneIndex < SceneManager.sceneCountInBuildSettings) {
+                    SceneManager.LoadScene(nextSceneIndex);
+                }
             }
         }
     }
@@ -37,5 +43,20 @@ public class CountdownTimer : MonoBehaviour
         int seconds = Mathf.FloorToInt(timeToDisplay%60);
 
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    void SetTimerForScene() {
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        switch (sceneIndex) {
+            case 0:
+                timeRemaining = 240f;
+                break;
+            case 1:
+                timeRemaining = 180f;
+                break;
+            case 2:
+                timeRemaining = 120f;
+                break;
+        }
     }
 }
