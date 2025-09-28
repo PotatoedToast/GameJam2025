@@ -5,6 +5,9 @@ using System.Collections.Generic;
 public class Interactable : MonoBehaviour, IInteractable
 {
 
+    [SerializeField] private InteractWindowScript windowController;
+
+
     private Color _originalColor; 
     private Renderer _renderer;
 
@@ -16,7 +19,14 @@ public class Interactable : MonoBehaviour, IInteractable
     }
 
     public void Interact(){
-        Debug.Log("Interacted with " + gameObject.name);
+        if (windowController != null)
+        {
+            windowController.ToggleWindow(); 
+        }
+        else
+        {
+            Debug.LogError("InteractWindowScript reference is missing on the Interactable object: " + gameObject.name);
+        }
     }
 
     public void Highlight(bool isHighlighted){

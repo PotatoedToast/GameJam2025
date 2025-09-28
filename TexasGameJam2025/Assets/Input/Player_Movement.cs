@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(SpriteRenderer))]
 
 public class Player_Movement : MonoBehaviour
 {
@@ -10,11 +11,16 @@ public class Player_Movement : MonoBehaviour
     private InputSystem_Actions _playerInputActions;
     private Vector3 _input;
     private CharacterController _characterController;
+    private SpriteRenderer _spriteRenderer;
+
+    [SerializeField] private Sprite walkRightSprite; 
+    [SerializeField] private Sprite walkLeftSprite;
 
     private void Awake(){
         //Initializes player input and character controller
         _playerInputActions = new InputSystem_Actions();
         _characterController = GetComponent<CharacterController>();
+        _spriteRenderer = GetComponent<SpriteRenderer>(); 
     }
 
     private void OnEnable(){
@@ -28,6 +34,7 @@ public class Player_Movement : MonoBehaviour
     private void Update(){ 
         getInput();
         Move();
+        UpdateSprintDirection();
     }
 
     private void Move(){
@@ -52,5 +59,19 @@ public class Player_Movement : MonoBehaviour
 
 // Map to 3D world vector (X-Z plane)
         _input = new Vector3(isometricInput.x, 0, isometricInput.y);
+    }
+
+    private void UpdateSprintDirection(){
+        float horizontalMovement = _input.x;
+        if (horizontalMovement > 0) // Moving Screen-Right
+            {
+                // Assign the sprite you want to use when the character walks right
+                _spriteRenderer.sprite = walkRightSprite;
+            }
+            else // Moving Screen-Left
+            {
+                // Assign the sprite you want to use when the character walks left
+                _spriteRenderer.sprite = walkLeftSprite;
+            }
     }
 }

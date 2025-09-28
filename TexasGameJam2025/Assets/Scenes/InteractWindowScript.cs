@@ -5,7 +5,6 @@ public class InteractWindowScript : MonoBehaviour
      
     [SerializeField] private GameObject _targetWindow;
     private const float TOGGLE_INTERVAL = 5.0f; 
-    private float nextToggleTime = 0f; 
 
 
 
