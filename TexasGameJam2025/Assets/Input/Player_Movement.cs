@@ -12,6 +12,7 @@ public class Player_Movement : MonoBehaviour
     private CharacterController _characterController;
 
     private void Awake(){
+        //Initializes player input and character controller
         _playerInputActions = new InputSystem_Actions();
         _characterController = GetComponent<CharacterController>();
     }
@@ -37,7 +38,10 @@ public class Player_Movement : MonoBehaviour
     private void getInput(){
         Vector2 input = _playerInputActions.Player.Move.ReadValue<Vector2>();
 
+        //45 Degree rotation for isometric movement
         float angle = 45f * Mathf.Deg2Rad;
+
+        //Apply rotation to input and set the input value. 
         Vector2 isometricInput = new Vector2(input.x*Mathf.Sin(angle) + input.y * Mathf.Cos(angle),
                                              input.y*Mathf.Sin(angle) - input.x * Mathf.Cos(angle));    
         _input = new Vector3(isometricInput.x, 0, isometricInput.y);
