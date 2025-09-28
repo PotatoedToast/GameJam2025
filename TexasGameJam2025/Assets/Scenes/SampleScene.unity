@@ -420,11 +420,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800b88afbb89d4d58bafe0e077f34970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objects
-  tool: {fileID: 1645105179}
-  toolNeeded: 0
+  toolNeeded: 
   canInteract: 0
-  isInteracted: 0
-  d: {fileID: 11400000, guid: b7661f5952caf44f68190d7011b997dd, type: 2}
+  success: {fileID: 0}
+  failure: {fileID: 0}
 --- !u!4 &700568875
 Transform:
   m_ObjectHideFlags: 0
@@ -652,6 +651,9 @@ MonoBehaviour:
   dialogueText: {fileID: 1313525948}
   nameText: {fileID: 331424439}
   dialoguePanel: {fileID: 2017192672}
+  currDialogues: []
+  currName: 
+  i: 0
 --- !u!1 &1064245910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,51 +1006,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1645105178
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1645105180}
-  - component: {fileID: 1645105179}
-  m_Layer: 0
-  m_Name: ToolBox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1645105179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645105178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04ba7c290516644e6911398a5fe38539, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Tools
-  du: {fileID: 985362774}
---- !u!4 &1645105180
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645105178}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 696.2803, y: 259.4621, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2017192672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,7 +1090,6 @@ SceneRoots:
   - {fileID: 1342777212}
   - {fileID: 978104143}
   - {fileID: 1064245913}
-  - {fileID: 1645105180}
   - {fileID: 700568875}
   - {fileID: 985362773}
   - {fileID: 726789403}

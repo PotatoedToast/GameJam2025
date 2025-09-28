@@ -6,45 +6,55 @@ public class DialogueController : MonoBehaviour {
     public TextMeshProUGUI nameText;
     public GameObject dialoguePanel;
 
-    public static string[] dialogues = {"Hello, my name is Derry the Datypus! Welcome to Murder in the Meadow.",
-                                        "To move, press WASD. To interact, press E. Go ahead and explore the room."};
-    public static string name = "Derry the Datypus";
-    public static int i = 0;
-    public static boolean
+    public string[] currDialogues;
+    public string currName;
+    public int i = 0;
+
+    public static DialogueController Instance;
 
     void Start() {
-        
+        Instance = this;
+        string[] d = {"Hello, my name is Derry the Platypus! Welcome to Murder in the Meadow.", 
+                        "To move, press WASD. To interact, press E. Go ahead and explore the room."};
+        string n = "Derry the Platypus";
+        StartDialogue(d, n);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && i == 0) {
-            ShowDialogue(dialogues[i], name);
-            i++;
-        } else if (Input.GetKeyDown(KeyCode.Space) && i > 0) {
-            if (i < dialogues.Length) {
-                ShowDialogue(dialogues[i], name);
-                i++;
-            } else {
-                EndDialogue();
-                i = 0;
-            }
+        if (dialoguePanel.activeSelf && Input.GetKeyDown(KeyCode.Space)) {
+            NextDialogue();
         }
+    }
 
-        
+    public void StartDialogue(string[] dialogues, string speaker) {
+        currDialogues = dialogues;
+        currName = speaker;
+        i = 0;
+        dialoguePanel.SetActive(true);
+        ShowDialogue(currDialogues[i], currName);
+        i++;
+    }
+
+    public void NextDialogue() {
+        if (i < currDialogues.Length) {
+            ShowDialogue(currDialogues[i], currName);
+            i++;
+        } else {
+            EndDialogue();
+        }
     }
 
     public void ShowDialogue(string dialogue, string name)
     {
         nameText.text = name + ":";
         dialogueText.text = dialogue;
-        dialoguePanel.SetActive(true);
     }
 
     public void EndDialogue()
     {
-        nameText.text = null;
-        dialogueText.text = null;
+        nameText.text = "";
+        dialogueText.text = "";
         dialoguePanel.SetActive(false);
     }
 }

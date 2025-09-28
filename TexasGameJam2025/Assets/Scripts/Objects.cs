@@ -3,10 +3,8 @@ using UnityEngine;
 public class Objects : MonoBehaviour
 {
 
-    public Tools tool;
     public string toolNeeded;
     public bool canInteract = false;
-    public bool isInteracted = false;
     public DialogueAsset success;
     public DialogueAsset failure;
     
@@ -30,15 +28,11 @@ public class Objects : MonoBehaviour
         canInteract = false;
     }
 
-    public bool Investigate(Tool tool, out string result) {
+    public void Investigate(Tool tool) {
         if (tool != null && tool.toolName == toolNeeded) {
-            // do stuff
-            DialogueController.dialogues = success;
-            DialogueController.i = 0;
+            DialogueController.Instance.StartDialogue(success.dialogue, success.name);
         } else {
-            // do other stuff
-            DialogueController.dialogues = failure;
-            DialogueController.i = 0;
+            DialogueController.Instance.StartDialogue(failure.dialogue, failure.name);
         }
     }
 
