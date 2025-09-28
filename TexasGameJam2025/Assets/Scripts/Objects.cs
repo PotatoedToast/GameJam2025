@@ -4,10 +4,11 @@ public class Objects : MonoBehaviour
 {
 
     public Tools tool;
-    public int toolNeeded;
+    public string toolNeeded;
     public bool canInteract = false;
     public bool isInteracted = false;
-    public DialogueAsset d;
+    public DialogueAsset success;
+    public DialogueAsset failure;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +28,18 @@ public class Objects : MonoBehaviour
 
     private void OnTriggerExit(Collider other) {
         canInteract = false;
+    }
+
+    public bool Investigate(Tool tool, out string result) {
+        if (tool != null && tool.toolName == toolNeeded) {
+            // do stuff
+            DialogueController.dialogues = success;
+            DialogueController.i = 0;
+        } else {
+            // do other stuff
+            DialogueController.dialogues = failure;
+            DialogueController.i = 0;
+        }
     }
 
 }

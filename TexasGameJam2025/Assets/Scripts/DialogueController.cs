@@ -10,6 +10,7 @@ public class DialogueController : MonoBehaviour {
                                         "To move, press WASD. To interact, press E. Go ahead and explore the room."};
     public static string name = "Derry the Datypus";
     public static int i = 0;
+    public static boolean
 
     void Start() {
         
@@ -29,6 +30,8 @@ public class DialogueController : MonoBehaviour {
                 i = 0;
             }
         }
+
+        
     }
 
     public void ShowDialogue(string dialogue, string name)
